@@ -12,13 +12,10 @@ pub fn init<S: Storage, A: Api, Q: Querier>(
     msg: InitMsg,
 ) -> StdResult<InitResponse> {
     let state = State {
-        count: msg.count,
-        owner: deps.api.canonical_address(&env.message.sender)?,
+        viewing_key: msg.viewing_key,
     };
 
     config(&mut deps.storage).save(&state)?;
-
-    debug_print!("Contract was initialized by {}", env.message.sender);
 
     Ok(InitResponse::default())
 }
