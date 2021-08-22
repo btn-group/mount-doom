@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "QueryAnswer",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "config"
+      ],
+      "properties": {
+        "config": {
+          "type": "object",
+          "required": [
+            "viewing_key"
+          ],
+          "properties": {
+            "viewing_key": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

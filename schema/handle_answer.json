@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "HandleMsg",
+  "title": "HandleAnswer",
   "anyOf": [
     {
       "type": "object",
@@ -11,15 +11,11 @@
         "set_viewing_key_for_snip20": {
           "type": "object",
           "required": [
-            "address",
-            "contract_hash"
+            "status"
           ],
           "properties": {
-            "address": {
-              "$ref": "#/definitions/HumanAddr"
-            },
-            "contract_hash": {
-              "type": "string"
+            "status": {
+              "$ref": "#/definitions/ResponseStatus"
             }
           }
         }
@@ -27,8 +23,11 @@
     }
   ],
   "definitions": {
-    "HumanAddr": {
-      "type": "string"
+    "ResponseStatus": {
+      "type": "string",
+      "enum": [
+        "success"
+      ]
     }
   }
 }
