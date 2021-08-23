@@ -30,7 +30,7 @@ pub fn handle<S: Storage, A: Api, Q: Querier>(
         HandleMsg::SetViewingKeyForSnip20 {
             address,
             contract_hash,
-        } => set_viewing_key_for_snip_20(deps, env, address, contract_hash),
+        } => set_viewing_key_for_snip20(deps, env, address, contract_hash),
     }
 }
 
@@ -51,7 +51,7 @@ fn query_config<S: Storage, A: Api, Q: Querier>(deps: &Extern<S, A, Q>) -> StdRe
     })
 }
 
-fn set_viewing_key_for_snip_20<S: Storage, A: Api, Q: Querier>(
+fn set_viewing_key_for_snip20<S: Storage, A: Api, Q: Querier>(
     deps: &mut Extern<S, A, Q>,
     _env: Env,
     address: HumanAddr,
@@ -105,7 +105,7 @@ mod tests {
     }
 
     #[test]
-    fn test_handle_set_viewing_key_for_snip_20() {
+    fn test_handle_set_viewing_key_for_snip20() {
         let (_init_result, mut deps) = init_helper();
 
         // = * It calls viewing key for snip 20
